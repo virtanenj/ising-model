@@ -1,5 +1,5 @@
 '''
-Visualisation of the Ising model
+Animation of the Ising model
 '''
 
 from ising import Ising
@@ -38,12 +38,13 @@ class isingView():
 
 
 if __name__ == "__main__":
+    dynamics = input('Dynamics: ')
+    T = float(input('Temperature: '))
+    steps = int(input('Sweeps: ')) * 2500  # 1 sweep = 2500 steps for 50x50 lattice
+
     xlen = 50
     ylen = 50
-    T = 2
     model = Ising(xlen, ylen, T)
-    steps = 100000
-    dynamics = 'glauber'
     printFreq = 10
     view = isingView(model, steps, dynamics, printFreq)
     frames = 1000
